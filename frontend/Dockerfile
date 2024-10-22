@@ -1,3 +1,5 @@
+#Below is by implementing the best practices:
+
 FROM nginx
 COPY code /usr/share/nginx/html
 RUN rm -rf /etc/nignx/nginx.conf
