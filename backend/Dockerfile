@@ -2,7 +2,7 @@
     
 FROM node AS build
 #created group with name as expense and also created a user as expense, added expense group as Primary group to expense User.
-RUN mkdir /opt/server
+#RUN mkdir /opt/server
 WORKDIR /opt/server
 COPY *.js .
 COPY *.json .
