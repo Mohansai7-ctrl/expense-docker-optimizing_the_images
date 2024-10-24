@@ -1,6 +1,6 @@
 #Below is by implementing the best practices:
     
-FROM node AS build
+FROM node:20 AS build
 #created group with name as expense and also created a user as expense, added expense group as Primary group to expense User.
 #RUN mkdir /opt/server
 WORKDIR /opt/server
