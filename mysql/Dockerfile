@@ -5,7 +5,7 @@ ENV MYSQL_ROOT_PASSWORD=ExpenseApp@1
 #as part of optimizing the image, here we created and assigned user expense to mysql dependencies which are /var/lib/mysql  /var/run/mysqld and /docker-entrypoint-initdb.d
 
 RUN groupadd expense && \
-    useradd expense && usermod -g expense expense && \
+    useradd -g expense expense && \
     chown -R expense:expense /var/lib/mysql /var/run/mysqld/ /docker-entrypoint-initdb.d
 
 
