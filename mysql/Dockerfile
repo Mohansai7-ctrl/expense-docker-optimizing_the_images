@@ -2,6 +2,12 @@
 
 FROM mysql:8.0
 ENV MYSQL_ROOT_PASSWORD=ExpenseApp@1
+RUN groupadd expense && \
+    useradd expense && usermod -g expense expense && \
+    chown -R /var/lib/mysql /var/run/mysqld/ /docker-entrypoint-initdb.d
+
+
+USER expense
 COPY scripts/*.sql /docker-entrypoint-initdb.d
     # MYSQL_USER=root
     # MYSQL_PASSWORD=ExpenseApp@1
