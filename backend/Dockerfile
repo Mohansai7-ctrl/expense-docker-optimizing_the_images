@@ -1,16 +1,18 @@
 #Below is by implementing the best practices:
-    
-FROM node:20 AS build
+# Below first stage is to preparing the application code:
+
+FROM node:20 AS build  
 #created group with name as expense and also created a user as expense, added expense group as Primary group to expense User.
 #RUN mkdir /opt/server
-WORKDIR /opt/server
+# if /opt/server doesn't exists, docker will create this dir and sets as workdir with below layer:
+WORKDIR /opt/server  
 COPY *.js .
 COPY *.json .
 RUN npm install
 
 
 
-
+# This stage creates the final, minimal image containing only what is necessary to run the application
 FROM node:20-alpine
 EXPOSE 8080
 ENV DB_HOST="mysql"
